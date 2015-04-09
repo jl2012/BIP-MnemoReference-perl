@@ -62,7 +62,6 @@ if (length ($ENV{'QUERY_STRING'}) > 0){
 		$grt->{'method'} = "getrawtransaction";
 		my $one = 1;
 		$grt->{'params'} = [$qs{'txid'},$one];
-		#$grt = $grt->allow_blessed;
 		$req->content(encode_json $grt);
 		my $res = $ua->request($req);
 
@@ -114,8 +113,6 @@ if (length ($ENV{'QUERY_STRING'}) > 0){
 				}
 				$spk = $result->{'vout'}->[$qs{'txo'}-1]->{'scriptPubKey'}->{'hex'};
 				print "Output script: $result->{'vout'}->[$qs{'txo'}-1]->{'scriptPubKey'}->{'asm'}\n";
-				#print "\n\n";
-				#print $res->content;
 				my ($w, $x, $y, $z, $height_b, $txindex_b, $txoindex_b);
 				
 				
